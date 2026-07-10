@@ -1,0 +1,13 @@
+;; Real-world organization location / contact.
+;; :head-role is institutional title only — no personal names.
+{:ooyake-id "gov.tuv"
+  :official-url "https://www.gov.tv/"
+  :name-en "Tuvalu"
+  :name-local "Tuvalu"
+  :wikidata "Q672"
+  :head-role "public procurement authority"
+  :head-role-note "institutional office title only; personal names of current office-holders are intentionally NOT stored"
+  :contact-page "https://www.wikidata.org/wiki/Q34126"
+  :sourced-from "com-etzhayyim-ooyake gov-units (verbatim where present)"
+  :hq {:line-en "Funafuti" :country "tuv" :kind "capital" :provenance "https://www.wikidata.org/wiki/Q34126" :last-verified "2026-07-10" :sourcing "authoritative"}
+}
