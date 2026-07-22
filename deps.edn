@@ -1,10 +1,35 @@
 {:paths ["src"]
+ ;; langgraph brings langchain transitively (both zero-/single-dep,
+ ;; all .cljc -> portable to JVM / SCI / ClojureScript / GraalVM). It lives
+ ;; in the kotoba-lang org of this workspace. This repo is standalone
+ ;; (forkable outside the workspace); the :local/root paths only resolve
+ ;; inside the monorepo checkout — a standalone fork should override them
+ ;; with git coordinates.
+ ;;
+ ;; culture.facts (src/culture/facts.cljc, ADR-2607171400 addendum 2) needs
+ ;; none of this -- it is plain data + pure functions -- so it stays on
+ ;; :paths ["src"] with zero extra deps, same as before this actor's deps
+ ;; were added.
+ :deps {io.github.kotoba-lang/langgraph
+        {:local/root "../../kotoba-lang/langgraph"}
+        ;; langchain-store: the shared langchain.db store seam (EDN-blob
+        ;; codec + identity schema + event-log read/append helpers) that
+        ;; ~190 cloud-itonami actors hand-roll (ADR-2607141600);
+        ;; marketentry.store's DatomicStore uses it instead of its own
+        ;; enc/dec* two-liner.
+        io.github.kotoba-lang/langchain-store
+        {:local/root "../../kotoba-lang/langchain-store"}}
  :aliases
- {:test {:extra-paths ["test"]
+ {;; offline workspace dev -- pin transitive langchain to local checkout
+  :dev {:override-deps
+        {io.github.kotoba-lang/langchain
+         {:local/root "../../kotoba-lang/langchain"}}}
+  :test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
                       {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
          :main-opts ["-m" "cognitect.test-runner"]
          :exec-fn cognitect.test-runner.api/test}
+  ;; static analysis -- clj-kondo from deps (no binary), errors fail CI.
   :lint {:replace-deps {clj-kondo/clj-kondo {:mvn/version "2024.11.14"}}
          :main-opts    ["-m" "clj-kondo.main"
                         "--lint" "src" "test"
