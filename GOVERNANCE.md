@@ -1,6 +1,6 @@
 # Governance
 
-`cloud-itonami-iso3166-khm` is an OSS open-business blueprint. Governance covers both code and
+`cloud-itonami-iso3166-tuv` is an OSS open-business blueprint. Governance covers both code and
 the operator model.
 
 ## Maintainers
