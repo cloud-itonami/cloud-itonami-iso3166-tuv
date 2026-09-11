@@ -11,7 +11,7 @@ Registration Act, CAP 40.12, registration / Operational License process).
 `src/marketentry/governor.cljk` for why.
 
 ```
-clojure -M:dev:test
+kbb -M:dev:test
 ```
 
 ## Grounding
