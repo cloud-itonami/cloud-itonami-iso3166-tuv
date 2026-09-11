@@ -46,5 +46,5 @@ representative/local-agent regime distinct from ordinary business
 registration. This reflects genuinely limited digitized government
 information for Tuvalu, a very small nation -- it is a scope limit, not
 an omission. If you find a verifiable source for any of these, extend
-`src/marketentry/facts.cljc`'s `catalog` -- do not hand-edit a claim into
+`src/marketentry/facts.cljk`'s `catalog` -- do not hand-edit a claim into
 this guide or any other doc without an official source.
