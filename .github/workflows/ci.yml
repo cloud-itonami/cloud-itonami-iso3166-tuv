@@ -11,7 +11,7 @@ name: CI
 # cloud-itonami-isic-6611-cryptoexchange / cloud-itonami-iso3166-ago /
 # cloud-itonami-iso3166-fji / cloud-itonami-iso3166-stp.
 #
-# culture.facts (src/culture/facts.cljc) needs none of this -- it is
+# culture.facts (src/culture/facts.cljk) needs none of this -- it is
 # plain data + pure functions on :paths ["src"] with zero extra deps --
 # but `clojure -M:dev:test` runs the whole test/ tree in one pass, so
 # its tests ride along with the marketentry actor's tests here.
