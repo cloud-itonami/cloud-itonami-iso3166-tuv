@@ -14,7 +14,7 @@
   `nif-unverified-violations` check -- the dossier does not ground a
   distinct TUV tax-ID scheme. `business-registration-missing` is the
   TUV analog of AGO's `ao-entity-missing` flagship check."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [langgraph.graph :as g]
             [marketentry.store :as store]
             [marketentry.operation :as op]))
